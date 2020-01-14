@@ -22,7 +22,12 @@ public class Periodical extends Item {
     @Override
     public void print() {
         super.print();
-        System.out.print("Issue[" + issue + "]");
+        System.out.print("[Issue: " + issue + "]");
+    }
+
+    @Override
+    public String toString() {
+        return super.toString() + "[Issue: " + issue + "]";
     }
 
     @Override

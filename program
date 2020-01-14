@@ -14,6 +14,9 @@ case "$1" in
 	run)
 	    java -cp lib/BreezySwing.jar:src InheritanceAndInterfacesApplication
 		;;
+	run-debug)
+	    java -cp lib/BreezySwing.jar:src InheritanceAndInterfacesApplication debug
+	    	;;
 	*)
 	    echo "usage: $0 { clean | build | run }"
 		;;

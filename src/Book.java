@@ -22,7 +22,12 @@ public class Book extends Item {
     @Override
     public void print() {
         super.print();
-        System.out.print("Author[" + author + "]");
+        System.out.print("[Author: " + author + "]");
+    }
+
+    @Override
+    public String toString() {
+        return super.toString() + "[Author: " + author + "]";
     }
 
     @Override
