@@ -1,0 +1,23 @@
+#!/bin/bash
+
+case "$1" in
+    cleanbuild)
+        $0 clean
+        $0 build
+        ;;
+	clean)
+	    rm -f src/*.class
+		;;
+	build)
+	    javac -cp src:lib/BreezySwing.jar src/*.java
+		;;
+	run)
+	    java -cp lib/BreezySwing.jar:src InheritanceAndInterfacesApplication
+		;;
+	*)
+	    echo "usage: $0 { clean | build | run }"
+		;;
+esac
+
+exit
+
