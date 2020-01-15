@@ -34,14 +34,19 @@ public class GUI extends GBFrame {
         } else if(button == compareItems) {
           CompareItems compareItems = new CompareItems(this);
           compareItems.setVisible(true);
+          int i = 1;
+          StringBuilder sb = new StringBuilder();
+          for(Item it : app.getLibrary()) {
+              sb.append("Item #" + (i++) + ": ").append(it.toString()).append("\n");
+          }
+          output.setText(output.getText() + "\n" + sb.toString());
         } else if(button == printLibrary) {
-            output.setText(null);
             int i = 1;
             StringBuilder sb = new StringBuilder();
             for(Item it : app.getLibrary()) {
                 sb.append("Item #" + (i++) + ": ").append(it.toString()).append("\n");
             }
-            output.setText(sb.toString());
+            output.setText(output.getText() + "\n" + sb.toString());
         }
     }
 

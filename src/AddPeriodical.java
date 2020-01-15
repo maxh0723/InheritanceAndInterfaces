@@ -24,6 +24,13 @@ public class AddPeriodical extends GBDialog {
             int issue = Integer.parseInt(issueField.getText());
             if (button == addPeriodical) {
                 gui.getApp().getLibrary().add(new Periodical(nameField.getText(), issue));
+                gui.getOutput().setText(null);
+                int i = 1;
+                StringBuilder sb = new StringBuilder();
+                for(Item it : gui.getApp().getLibrary()) {
+                    sb.append("Item #" + (i++) + ": ").append(it.toString()).append("\n");
+                }
+                gui.getOutput().setText(sb.toString());
             }
         } catch (NumberFormatException e) {
             System.out.println("Invalid issue specified: " + issueField.getText());

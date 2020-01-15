@@ -59,8 +59,18 @@ public class InheritanceAndInterfacesApplication {
             item3.print();
             System.out.print("] and item4[");
             item4.print();
-            System.out.print("] (cmpare =) " + item3.compareTo(item4) + "\n");
+            System.out.print("] (compare =) " + item3.compareTo(item4) + "\n");
 
+            // If the debug library was loaded, display it immediately
+            if(app.getLibrary().size() > 0) {
+                gui.getOutput().setText(null);
+                int i = 1;
+                StringBuilder sb = new StringBuilder();
+                for(Item it : app.getLibrary()) {
+                    sb.append("Item #" + (i++) + ": ").append(it.toString()).append("\n");
+                }
+                gui.getOutput().setText(sb.toString());
+            }
         } else {
             System.out.println("Starting with empty library");
         }

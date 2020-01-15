@@ -21,6 +21,13 @@ public class AddBook extends GBDialog {
         public void buttonClicked(JButton button) {
             if (button == addBook)
                     gui.getApp().getLibrary().add(new Book(nameField.getText(), authorField.getText()));
+            gui.getOutput().setText(null);
+            int i = 1;
+            StringBuilder sb = new StringBuilder();
+            for(Item it : gui.getApp().getLibrary()) {
+                sb.append("Item #" + (i++) + ": ").append(it.toString()).append("\n");
+            }
+            gui.getOutput().setText(sb.toString());
             dispose();
         }
 }
