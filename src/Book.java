@@ -21,19 +21,18 @@ public class Book extends Item {
 
     @Override
     public void print() {
-        super.print();
-        System.out.print("[Author: " + author + "]");
+        System.out.print("[Name: \"" + getName() + "\"][Author: " + author + "]");
     }
 
     @Override
     public String toString() {
-        return super.toString() + "[Author: " + author + "]";
+        return "[Name: \"" + getName() + "\"][Author: " + author + "]";
     }
 
     @Override
     public int compareTo(Object o) {
-        Book b = (Book)o;
 
+        Book b = (Book)o;
         if(this.getName().compareTo(b.getName()) < 0) {
             return -1;
         } else if(this.getName().compareTo(b.getName()) > 0) {

@@ -10,12 +10,5 @@ public abstract class Item implements Comparable {
         this.name = name;
     }
 
-    @Override
-    public String toString() {
-        return "[Name: \"" + name + "\"]";
-    }
-
-    public void print() {
-        System.out.print("[Name: \"" + name + "\"]");
-    }
+    public abstract void print();
 }

@@ -1,4 +1,6 @@
-public class Periodical extends Item {
+import java.lang.Comparable;
+
+public class Periodical extends Item implements Comparable {
 
     int issue;
 
@@ -21,17 +23,17 @@ public class Periodical extends Item {
 
     @Override
     public void print() {
-        super.print();
-        System.out.print("[Issue: " + issue + "]");
+        System.out.print("[Name: \"" + name + "\"][Issue: " + issue + "]");
     }
 
     @Override
     public String toString() {
-        return super.toString() + "[Issue: " + issue + "]";
+        return "[Name: \"" + name + "\"][Issue: " + issue + "]";
     }
 
     @Override
     public int compareTo(Object o) {
+
         Periodical p = (Periodical)o;
 
         if(this.getName().compareTo(p.getName()) < 0) {
