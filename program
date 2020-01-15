@@ -6,16 +6,19 @@ case "$1" in
         $0 build
         ;;
 	clean)
-	    rm -f src/*.class
+	    rm -rf bin -f src/*.class
 		;;
 	build)
-	    javac -cp src:lib/BreezySwing.jar src/*.java
+	    if [ ! -d bin ]; then
+	       mkdir bin
+	    fi
+	    javac -d bin -cp src:lib/BreezySwing.jar src/*.java
 		;;
 	run)
-	    java -cp lib/BreezySwing.jar:src InheritanceAndInterfacesApplication
+	    java -cp lib/BreezySwing.jar:bin InheritanceAndInterfacesApplication
 		;;
 	run-debug)
-	    java -cp lib/BreezySwing.jar:src InheritanceAndInterfacesApplication debug
+	    java -cp lib/BreezySwing.jar:bin InheritanceAndInterfacesApplication debug
 	    	;;
 	*)
 	    echo "usage: $0 { clean | build | run }"
